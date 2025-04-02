@@ -476,7 +476,7 @@ async fn main() -> std::io::Result<()> {
             .service(update_speed_rating_handler)
             .service(update_message_handler)
     })
-    .bind("127.0.0.1:8000")?
+    .bind("0.0.0.0:8000")?
     .run()
     .await
 }
