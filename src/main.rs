@@ -210,7 +210,7 @@ async fn get_user_tasks(
 ) -> Result<Vec<FirestoreTask>, actix_web::Error> {
     let object_stream: BoxStream<FirestoreResult<FirestoreTask>> = client.fluent()
         .select()
-        .fields(paths!(FirestoreTask::{goal_name, username, task_name, color, updated_at}))
+        .fields(paths!(FirestoreTask::{goal_name, username, task_name, color, updated_at, message, speed_rating}))
         .from("tasks")
         .filter( |q| {
             q.field(path!(FirestoreTask::username)).eq(user_id.clone())
